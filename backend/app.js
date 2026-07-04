@@ -44,10 +44,14 @@ app.use(express.urlencoded({ extended: true }));
 // app.use("/uploads", express.static(uploadPath));
 
 //  MongoDB
-const MONGO_URL = "mongodb://127.0.0.1:27017/portfolio";
+const MONGO_URL = process.env.ATLAS_URL;
 
 mongoose
-  .connect(MONGO_URL)
+  .connect(MONGO_URL, 
+    {
+      dbName: "my_portfolio",
+    }
+  )
   .then(() => console.log(" Connected to DB"))
   .catch((err) => console.log(err));
 
