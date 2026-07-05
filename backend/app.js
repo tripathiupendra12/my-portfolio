@@ -35,6 +35,10 @@ mongoose
   .then(() => console.log(" Connected to DB"))
   .catch((err) => console.log(err));
 
+app.get("/", (req, res) => {
+  res.send("backend is running");
+})
+
 // GET all projects
 app.get("/project", async (req, res) => {
   try {
