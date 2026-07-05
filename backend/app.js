@@ -14,23 +14,6 @@ const path = require("path");
 
 const Project = require("./model/projects.js");
 
-// Ensure uploads folder exists
-// const uploadPath = path.join(__dirname, "uploads");
-
-// if (!fs.existsSync(uploadPath)) {
-//   fs.mkdirSync(uploadPath);
-// }
-
-// Multer Storage (clean)
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, uploadPath);
-//   },
-//   filename: function (req, file, cb) {
-//     const uniqueName = Date.now() + "-" + file.originalname;
-//     cb(null, uniqueName);
-//   },
-// });
 const {storage} = require("./cloudConfig.js")
 
 const upload = multer({ storage });
@@ -39,9 +22,6 @@ const upload = multer({ storage });
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Static folder (IMPORTANT)
-// app.use("/uploads", express.static(uploadPath));
 
 //  MongoDB
 const MONGO_URL = process.env.ATLAS_URL;
