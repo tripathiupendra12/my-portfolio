@@ -12,7 +12,7 @@ export const ProjectsSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/project");
+        const res = await axios.get("https://my-portfolio-backend-dlwe.onrender.com/project");
         setProjects(res.data);
       } catch (err) {
         console.log(err);
@@ -25,7 +25,7 @@ export const ProjectsSection = () => {
   //  Delete Project (without reload)
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/project/${id}`);
+      await axios.delete(`https://my-portfolio-backend-dlwe.onrender.com/project/${id}`);
       setProjects((prev) => prev.filter((item) => item._id !== id));
     } catch (err) {
       console.log(err);

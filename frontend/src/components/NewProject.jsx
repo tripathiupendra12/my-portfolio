@@ -59,7 +59,7 @@ const NewProject = () => {
       data.append("demoUrl", formData.demoUrl);
       data.append("gitHubUrl", formData.gitHubUrl);
 
-      await axios.post("http://localhost:8080/newProject", data);
+      await axios.post("https://my-portfolio-backend-dlwe.onrender.com/newProject", data);
 
       // ✅ reset form after success
       setFormData({
